@@ -13,7 +13,7 @@ BAG files are the **standard data product format** for the NOAA Office of Coast 
 - Container format: **HDF5 (Hierarchical Data Format version 5)**
 - Metadata standard: **ISO 19115 / ISO 19139 XML**
 - Coordinate convention: **Right-handed Cartesian** (Z positive upward)
-- Nodata sentinel value: **1,000,000.0 (1.0e6)**
+- Nodata sentinel: **elevation** = 1,000,000.0 (1.0e6); **uncertainty** = 0.0
 - Elevation sign: **Positive above vertical datum** (depths are negative)
 - Grid type: Regular, fixed-spacing grid (contiguous geographic region)
 
@@ -79,23 +79,37 @@ The initial specification establishing:
 - Files from producers using ArcGIS Maritime Bathymetry 10.2.1 and earlier may use the old schema; 10.2.2+ use the new schema
 - GDAL handles both XPath variants automatically
 
-### Version 1.6.2 (2015–present) — Default GDAL Output Version
+### Version 1.6.0 (2015–2016) — Variable Resolution Grids
 
-- Current stable release used as GDAL's default when creating new BAG files
-- Incremental clarifications to the specification
-- Added guidance on variable resolution grids (later formalized)
+- **Variable Resolution (VR) grids introduced** — the most significant feature addition since v1.0
+- Each low-resolution cell in the primary grid can optionally reference a nested "supergrid" at higher resolution
+- Four new HDF5 datasets added under `/BAG_root/`:
+  - `varres_metadata` — per-cell supergrid descriptors (extent, resolution, data index)
+  - `varres_refinements` — 1D array of `(elevation, uncertainty)` pairs for all supergrid nodes
+  - `varres_tracking_list` — audit trail for VR node modifications
+  - `varres_keys` — optional index keys into refinements
+- The low-resolution "representative surface" grid is always present for overview/fallback use
 
-### Version 2.0.x (2019–2022)
+### Version 1.6.2 (2016–present) — Default GDAL Output Version
 
-Version 2.0 is a **major redesign** that includes:
-- **Variable Resolution (VR) grids**: Each low-resolution cell can contain a higher-resolution sub-grid
-- **Georeferenced metadata layers**: Named 2D raster layers with associated attribute tables
-- **Tracking list improvements**: Better provenance tracking
-- **Security metadata fields**: Classification and restriction info
-- **Compound CRS support**: Explicit horizontal + vertical CRS pairing
-- **OGC Community Standard**: BAG 2.0 was submitted as an OGC standard in 2020
+- Current stable release used as GDAL's default when creating new BAG files (`BAG_VERSION` creation option default)
+- Refinements to VR grid specification
+- GDAL can read VR BAG files but **cannot create** them (writer always produces single-resolution output)
 
-**Version 2.0.1** (November 2022) is the current released specification.
+### Version 2.0.0 (2019–2020)
+
+Version 2.0 is a major revision focused on **richer per-node metadata**:
+- **Georeferenced metadata layers**: New `/BAG_root/georef_metadata/<profile>/` group — a keys-raster + values-table architecture for per-node survey quality/attribution data
+- **Digital signature removed**: The 1024-byte signature block previously appended after the HDF5 EOF is no longer present; v2.0 files are clean HDF5
+- **S-101 Quality profile**: Standard `quality_of_bathy_data_1_0` georef metadata profile aligned with IHO S-101
+- **OGC Community Standard**: Submitted to OGC in 2020
+- Note: Variable resolution grids were already part of v1.6; v2.0 retained them unchanged
+
+### Version 2.0.1 (December 2022) — Current Release
+
+**Version 2.0.1** is the current released specification. Incremental clarifications over 2.0.0.
+
+**Note on digital signatures (v1.x only)**: BAG 1.x files have a 1024-byte signature appended after the HDF5 file's logical EOF. This is normal and expected — some HDF5 tools may warn about "trailing bytes" but the file is valid. v2.0+ files have no trailing data.
 
 ---
 
@@ -116,13 +130,17 @@ A BAG file (all versions) contains the following HDF5 structure:
 ├── tracking_list                   (HDF5 dataset, compound type — edit history)
 │   └── Tracking List Length        (HDF5 attribute, uint32)
 │
-│   [BAG 2.0+ additional items:]
-├── georef_metadata/                (HDF5 group)
-│   └── <layer_name>/               (HDF5 group per named layer)
-│       ├── keys                    (HDF5 dataset, uint32 2D array — index into values)
-│       └── values                  (HDF5 dataset, compound type — attribute table rows)
-└── varres_metadata                 (HDF5 dataset — VR grid cell descriptors, BAG 2.0+)
-└── varres_refinements              (HDF5 dataset — actual VR node data, BAG 2.0+)
+│   [BAG 1.6.0+ VR grid items (optional):]
+├── varres_metadata                 (HDF5 dataset, compound 2D — supergrid descriptors per low-res cell)
+├── varres_refinements              (HDF5 dataset, compound 1D — all supergrid (elev,unc) node pairs)
+├── varres_tracking_list            (HDF5 dataset, compound 1D — VR edit audit trail)
+└── varres_keys                     (HDF5 dataset, uint32 1D — optional index into refinements)
+
+│   [BAG 2.0+ items:]
+└── georef_metadata/                (HDF5 group)
+    └── <profile_name>/             (HDF5 group per named layer, e.g. "quality_of_bathy_data_1_0")
+        ├── keys                    (HDF5 dataset, uint32 2D array — index into values; 0 = nodata)
+        └── values                  (HDF5 dataset, compound type — attribute table rows)
 ```
 
 ### Grid Orientation
@@ -239,10 +257,20 @@ Older US surveys may use NAD27. The difference can be up to ~200 meters from NAD
 
 ## 6. GDAL BAG Driver Capabilities
 
+### GDAL Version History for BAG Support
+
+| GDAL Version | Year | BAG Feature Added                                                              |
+|--------------|------|--------------------------------------------------------------------------------|
+| **1.8**      | 2009 | Initial BAG read support (elevation + uncertainty bands, geotransform, CRS)    |
+| **3.2**      | 2020 | Creation support (`CreateCopy`/`Create`); `REPORT_VERTCRS`; georef metadata read; extra bands; `BAG_VERSION` creation option; `NODATA_VALUE` open option |
+| **3.8**      | 2023 | `MODE=INTERPOLATED` — bilinear/barycentric interpolation for VR grids          |
+| **3.12**     | 2025 | Expanded S-102 support (multiple feature instance groups)                      |
+
 ### Version Support
 - GDAL supports all BAG versions (1.0 through 2.0+) via its HDF5-based BAG driver
 - The driver requires **libhdf5** as a build dependency
 - BAG support is compiled in by default in most GDAL distributions
+- GDAL can read VR BAG (v1.6.0+) but **cannot write** VR BAG (always creates single-resolution output)
 
 ### Read Capabilities
 
@@ -259,7 +287,7 @@ Older US surveys may use NAD27. The difference can be up to ~200 meters from NAD
 | XML metadata domain                  | Yes       | `"xml:BAG"` metadata domain                 |
 | Nodata value                         | Yes       | Reported as 1e6                             |
 | Min/Max values                       | Yes       | From HDF5 attributes                        |
-| Variable resolution (VR) grids       | Yes (2.0+)| Multiple modes available                    |
+| Variable resolution (VR) grids       | Yes (1.6+)| Multiple modes available; read-only         |
 | Georef metadata layers               | Yes (3.2+)| As subdatasets                              |
 | Tracking list (as OGR vector)        | Yes       | Open in vector mode                         |
 | Compression (DEFLATE)               | Yes       | Transparent read                            |
@@ -375,11 +403,13 @@ char** meta = ds->GetMetadata();
 
 ### Band Mapping
 
-| BAG Band | Content           | GeoTiff Band | Notes                               |
-|----------|------------------|--------------|-------------------------------------|
-| 1        | Elevation         | 1            | Float32; nodata = 1e6               |
-| 2        | Uncertainty       | 2 (optional) | Float32; nodata = 1e6               |
-| 3        | Nominal elevation | 3 (optional) | Float32, if present (BAG 2.0+)      |
+| BAG Band | Content           | GeoTiff Band | Spec Nodata | GDAL Reports | Notes                          |
+|----------|------------------|--------------|-------------|--------------|--------------------------------|
+| 1        | Elevation         | 1            | 1.0e6       | 1.0e6        | Float32; depths are negative   |
+| 2        | Uncertainty       | 2 (optional) | 0.0         | 1.0e6        | GDAL normalises to 1e6 in read |
+| 3        | Nominal elevation | 3 (optional) | 1.0e6       | 1.0e6        | Optional; BAG 1.1+             |
+
+**Note on uncertainty nodata**: The BAG specification defines uncertainty nodata as `0.0`, but GDAL's BAG driver reports `1e6` for all bands when reading (it harmonises to the elevation sentinel). The C++ converter uses `GetNoDataValue()` so it faithfully propagates whatever value GDAL reports.
 
 ### GeoTiff Creation Options for BAG Data
 
@@ -471,20 +501,37 @@ Where `[HRANGE]` is e.g. `H12001-H14000` for surveys numbered H12001–H14000.
 
 **Real-world CRS observation**: The H12238 file uses an unnamed PROJCS in its BAG metadata WKT but GDAL 3.8 successfully resolves it to NAD83/UTM zone 18N via the projection parameters. This is a common pattern in older NOAA survey files where the CRS name was not standardized.
 
+### Small Test Files (for Unit Testing / CI)
+
+For lightweight testing without downloading large NOAA survey files, two excellent sources exist:
+
+**OpenNavigationSurface/BAG GitHub** (`examples/sample-data/`):
+- Tiny 10×10 cell BAG files covering all format features
+- Includes: standard BAG, VR BAG, georef metadata, nominal elevation, compound CRS
+- URL: `https://github.com/OpenNavigationSurface/BAG/tree/master/examples/sample-data`
+
+**GDAL autotest data** (`autotest/gdrivers/data/bag/`):
+- Small BAG files used in GDAL's own test suite
+- Covers edge cases like missing CRS, VR grids, and format variants
+- URL: `https://github.com/OSGeo/gdal/tree/master/autotest/gdrivers/data/bag`
+
 ### Validation Tools
 - `gdalinfo file.bag` — Inspect metadata, CRS, bands, geotransform
-- `gdalinfo -checksum file.tif` — Verify GeoTiff integrity
-- QGIS / ArcGIS — Visual inspection
-- HDF5 tools: `h5dump -n file.bag` — Inspect raw HDF5 structure
-- `h5dump -a /BAG_root/"BAG Version" file.bag` — Check BAG version
+- `h5dump -n file.bag` — List all HDF5 groups and datasets
+- `h5dump -d /BAG_root/metadata file.bag` — Extract raw ISO XML metadata
+- `h5dump -a "/BAG_root/BAG Version" file.bag` — Check BAG version string
+- `gdalinfo -checksum file.tif` — Verify GeoTiff band checksums
+- QGIS / ArcGIS — Visual inspection of converted GeoTiff
 
 ---
 
 ## 12. References and Further Reading
 
 - [BAG Format Specification (ReadTheDocs)](https://bag.readthedocs.io/en/master/fsd/index.html)
-- [OpenNavigationSurface BAG GitHub](https://github.com/OpenNavigationSurface/BAG)
+- [OpenNavigationSurface BAG GitHub + sample data](https://github.com/OpenNavigationSurface/BAG)
 - [GDAL BAG Driver Documentation](https://gdal.org/en/stable/drivers/raster/bag.html)
+- [GDAL S-102 Driver Documentation](https://gdal.org/en/stable/drivers/raster/s102.html)
+- [GDAL autotest BAG data](https://github.com/OSGeo/gdal/tree/master/autotest/gdrivers/data/bag)
 - [OGC BAG Community Standard](https://www.ogc.org/standards/bag/)
 - [NOAA NOS Hydrographic Survey Page](https://www.ncei.noaa.gov/products/nos-hydrographic-survey)
 - [NOAA BAG File Archive](https://www.ngdc.noaa.gov/mgg/bathymetry/hydro.html)

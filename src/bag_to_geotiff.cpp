@@ -8,10 +8,11 @@
  *  - BAG v1.0–v2.0+ (HDF5-based, GDAL BAG driver)
  *  - Missing/empty CRS  → falls back to WGS84 geographic (EPSG:4326) with warning
  *  - Non-WKT CRS strings (bare EPSG codes) → resolved via OGRSpatialReference
- *  - Variable-resolution BAG 2.0 files → flattened via RESAMPLED_GRID mode
+ *  - Variable-resolution BAG 1.6.0+ files → flattened via RESAMPLED_GRID mode
  *  - Compound CRS (horizontal + vertical) → preserved in GeoTiff metadata
  *  - Elevation and uncertainty bands, plus any additional BAG layers
- *  - Nodata sentinel (1.0e6) propagated to output GeoTiff
+ *  - Nodata values propagated faithfully from GDAL (elevation: 1e6; uncertainty: 0.0 per
+ *    spec, but GDAL's BAG driver normalises both to 1e6 at read time)
  *
  * Dependencies: GDAL >= 3.2 with HDF5/BAG support
  *
@@ -494,7 +495,9 @@ static bool convertDataset(GDALDataset* srcDs,
         if (hasNodata) {
             dstBand->SetNoDataValue(srcNodata);
         } else {
-            // BAG always uses 1e6 as the nodata sentinel
+            // Fallback: BAG spec uses 1e6 for elevation and 0.0 for uncertainty,
+            // but GDAL's driver normalises both to 1e6 when reporting nodata.
+            // We only reach here if GDAL reports no nodata at all (unusual).
             dstBand->SetNoDataValue(BAG_NODATA);
         }
 
