@@ -1,0 +1,17 @@
+# Build output
+build/
+output/
+
+# Downloaded test data (large binary files - re-download with scripts/download_test_bags.sh)
+test_data/*.bag
+
+# IDE / editor files
+.vscode/
+*.swp
+*.swo
+*~
+
+# Compiler artifacts
+*.o
+*.a
+*.so
