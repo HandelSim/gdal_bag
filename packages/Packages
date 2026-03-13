@@ -1,0 +1,835 @@
+Package: bash-completion
+Version: 1:2.11-8
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 1454
+Provides: dh-sequence-bash-completion
+Filename: ./bash-completion_1%3a2.11-8_all.deb
+Size: 179856
+MD5sum: 03d87d94332219210e506ead1f0e3f57
+SHA1: 76c0e3522a872ccf8ec32ee800f1bbbae0dbdd2c
+SHA256: dc0942fee04727503abebee14a5c33e95f88338c35274e5e92df0fd0eb3cd037
+Section: shells
+Priority: standard
+Multi-Arch: foreign
+Homepage: https://github.com/scop/bash-completion
+Description: programmable completion for the bash shell
+ bash completion extends bash's standard completion behavior to achieve
+ complex command lines with just a few keystrokes.  This project was
+ conceived to produce programmable completion routines for the most
+ common Linux/UNIX commands, reducing the amount of typing sysadmins
+ and programmers need to do on a daily basis.
+Original-Maintainer: Gabriel F. T. Gomes <gabriel@debian.org>
+
+Package: build-essential
+Version: 12.10ubuntu1
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 17
+Depends: libc6-dev | libc-dev, gcc (>= 4:12.3), g++ (>= 4:12.3), make, dpkg-dev (>= 1.17.11)
+Filename: ./build-essential_12.10ubuntu1_amd64.deb
+Size: 4928
+MD5sum: 4d68ffae811efe26d2bbb7dea480f0e7
+SHA1: fb88ce706d33862bcf5602dbd5c8206ff5a6aa27
+SHA256: 9b2159b95a4c01937309783c7c8a6ec8dfbcb7ffd604951c9713ac52ee9c7268
+Section: devel
+Priority: optional
+Description: Informational list of build-essential packages
+ If you do not plan to build Debian packages, you don't need this
+ package.  Starting with dpkg (>= 1.14.18) this package is required
+ for building Debian packages.
+ .
+ This package contains an informational list of packages which are
+ considered essential for building Debian packages.  This package also
+ depends on the packages on that list, to make it easy to have the
+ build-essential packages installed.
+ .
+ If you have this package installed, you only need to install whatever
+ a package specifies as its build-time dependencies to build the
+ package.  Conversely, if you are determining what your package needs
+ to build-depend on, you can always leave out the packages this
+ package depends on.
+ .
+ This package is NOT the definition of what packages are
+ build-essential; the real definition is in the Debian Policy Manual.
+ This package contains merely an informational list, which is all
+ most people need.   However, if this package and the manual disagree,
+ the manual is correct.
+Original-Maintainer: Matthias Klose <doko@debian.org>
+
+Package: cpp
+Source: gcc-defaults (1.214ubuntu1)
+Version: 4:13.2.0-7ubuntu1
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 37
+Depends: cpp-13 (>= 13.2.0-11~), cpp-x86-64-linux-gnu (= 4:13.2.0-7ubuntu1)
+Suggests: cpp-doc
+Conflicts: cpp-doc (<< 1:2.95.3), gcc (<< 4:13.2.0-3)
+Filename: ./cpp_4%3a13.2.0-7ubuntu1_amd64.deb
+Size: 22442
+MD5sum: f72d46f22f852cf329a19a3b6c0ef7f9
+SHA1: c1e8e3ac068ceca2c3c7806d79784af51a088ace
+SHA256: b51f8094760f7b41afdcb1fe1b5a57fc64b75a090859918af17450a10f8c7d31
+Section: interpreters
+Priority: optional
+Multi-Arch: allowed
+Description: GNU C preprocessor (cpp)
+ The GNU C preprocessor is a macro processor that is used automatically
+ by the GNU C compiler to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+ .
+ This is a dependency package providing the default GNU C preprocessor.
+Original-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+
+Package: cpp-13
+Source: gcc-13
+Version: 13.3.0-6ubuntu2~24.04.1
+Architecture: amd64
+Maintainer: Ubuntu Core developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 11
+Depends: gcc-13-base (= 13.3.0-6ubuntu2~24.04.1), cpp-13-x86-64-linux-gnu (= 13.3.0-6ubuntu2~24.04.1)
+Suggests: gcc-13-locales (>= 13)
+Breaks: hardening-wrapper (<< 2.8+nmu3), libmagics++-dev (<< 2.28.0-4)
+Filename: ./cpp-13_13.3.0-6ubuntu2~24.04.1_amd64.deb
+Size: 1042
+MD5sum: 3197b91f8a37ff9bbae2ff279bab6e19
+SHA1: 0702fb7f236497a52a054995a1b5260fc2cb3ec8
+SHA256: c7535331fbb183c802c3bf4b6b210872dcc12d0421b3212b3c4b940f2c59ed3a
+Section: interpreters
+Priority: optional
+Homepage: http://gcc.gnu.org/
+Description: GNU C preprocessor
+ A macro processor that is used automatically by the GNU C compiler
+ to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+Original-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+
+Package: curl
+Version: 8.5.0-2ubuntu10.8
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 521
+Depends: libc6 (>= 2.34), libcurl4t64 (= 8.5.0-2ubuntu10.8), zlib1g (>= 1:1.1.4)
+Filename: ./curl_8.5.0-2ubuntu10.8_amd64.deb
+Size: 226502
+MD5sum: fc1b4b3c224cf2cfe6817952861bb050
+SHA1: bb44af562f022188d4ca29c3067b0aaf8daade56
+SHA256: ce3517ccfe7a53fe4c6c201f18b22a1a6e718f8b596904e5e66a10200cb8ce7e
+Section: web
+Priority: optional
+Multi-Arch: foreign
+Homepage: https://curl.se/
+Description: command line tool for transferring data with URL syntax
+ curl is a command line tool for transferring data with URL syntax, supporting
+ DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3,
+ POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
+ .
+ curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form
+ based upload, proxies, cookies, user+password authentication (Basic, Digest,
+ NTLM, Negotiate, kerberos...), file transfer resume, proxy tunneling and a
+ busload of other useful tricks.
+Original-Maintainer: Debian Curl Maintainers <team+curl@tracker.debian.org>
+
+Package: file
+Version: 1:5.45-3build1
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 63
+Depends: libc6 (>= 2.38), libmagic1t64 (= 1:5.45-3build1)
+Breaks: debhelper (<< 12.2~)
+Filename: ./file_1%3a5.45-3build1_amd64.deb
+Size: 22042
+MD5sum: b22be689580ab077ef96072a6500941b
+SHA1: 2c5f7c6904534cc658b588e0fe10c37d7ac576d0
+SHA256: 17dae1d6e803d0304e318f451c8abf62cbd5bb2a0068300cdeea77c62075b895
+Section: utils
+Priority: standard
+Multi-Arch: foreign
+Homepage: https://www.darwinsys.com/file/
+Description: Recognize the type of data in a file using "magic" numbers
+ The file command is "a file type guesser", a command-line tool that
+ tells you in words what kind of data a file contains.
+ .
+ This package contains the file program itself.
+Original-Maintainer: Christoph Biedl <debian.axhn@manchmal.in-ulm.de>
+
+Package: g++
+Source: gcc-defaults (1.214ubuntu1)
+Version: 4:13.2.0-7ubuntu1
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 13
+Depends: cpp (= 4:13.2.0-7ubuntu1), cpp-x86-64-linux-gnu (= 4:13.2.0-7ubuntu1), gcc (= 4:13.2.0-7ubuntu1), g++-13 (>= 13.2.0-11~), g++-x86-64-linux-gnu (= 4:13.2.0-7ubuntu1), gcc-13 (>= 13.2.0-11~)
+Suggests: g++-multilib
+Provides: c++-compiler
+Filename: ./g++_4%3a13.2.0-7ubuntu1_amd64.deb
+Size: 1100
+MD5sum: 4ad944aa44dc1e47976a60d89b854334
+SHA1: 5fcf86dcc889a95ea95eec433f7c01f59e946271
+SHA256: 800a84b369c64b18d65f0fb5c1533de0446c880ee4f1cadad64e3363327f63f0
+Section: devel
+Priority: optional
+Description: GNU C++ compiler
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This is a dependency package providing the default GNU C++ compiler.
+Original-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+
+Package: g++-13
+Source: gcc-13
+Version: 13.3.0-6ubuntu2~24.04.1
+Architecture: amd64
+Maintainer: Ubuntu Core developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 29
+Depends: g++-13-x86-64-linux-gnu (= 13.3.0-6ubuntu2~24.04.1), gcc-13-base (= 13.3.0-6ubuntu2~24.04.1), gcc-13 (= 13.3.0-6ubuntu2~24.04.1)
+Suggests: g++-13-multilib, gcc-13-doc (>= 13)
+Provides: c++-compiler, c++abi2-dev
+Filename: ./g++-13_13.3.0-6ubuntu2~24.04.1_amd64.deb
+Size: 16048
+MD5sum: 003839ff9b40a2c140c43bd5c0e1186e
+SHA1: 2fd7f5647d02baffdf85904ab75b99aa8e140197
+SHA256: 0f3ef964b8a91a9cd7bebfd126839a21941c55547cadcf4aa00204bc8cc43985
+Section: devel
+Priority: optional
+Homepage: http://gcc.gnu.org/
+Description: GNU C++ compiler
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+Original-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+
+Package: gcc-13
+Version: 13.3.0-6ubuntu2~24.04.1
+Architecture: amd64
+Maintainer: Ubuntu Core developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 553
+Depends: gcc-13-x86-64-linux-gnu (= 13.3.0-6ubuntu2~24.04.1), gcc-13-base (= 13.3.0-6ubuntu2~24.04.1), cpp-13 (= 13.3.0-6ubuntu2~24.04.1), binutils (>= 2.39)
+Recommends: libc6-dev (>= 2.13-0ubuntu6)
+Suggests: gcc-13-multilib, gcc-13-doc (>= 13), gcc-13-locales (>= 13)
+Replaces: cpp-13 (<< 7.1.1-8)
+Provides: c-compiler
+Filename: ./gcc-13_13.3.0-6ubuntu2~24.04.1_amd64.deb
+Size: 494262
+MD5sum: b754981217b2ad7c21b56f7b87492d67
+SHA1: 85bf357840794ef2a4a7cbdf95965e087752ad0a
+SHA256: 7438ff160b020a74970672189ecae25d0ca650de6d7f543f12a3134192cffbd9
+Section: devel
+Priority: optional
+Homepage: http://gcc.gnu.org/
+Description: GNU C compiler
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+Original-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+
+Package: gdal-bin
+Source: gdal
+Version: 3.8.4+dfsg-3ubuntu3
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 1288
+Depends: python3-gdal (= 3.8.4+dfsg-3ubuntu3), python3-numpy (>= 1:1.22.0), python3-numpy-abi9, python3:any, libc6 (>= 2.38), libgcc-s1 (>= 3.3.1), libgdal34t64 (>= 3.8.0), libstdc++6 (>= 5.2)
+Suggests: libgdal-grass
+Breaks: gdal-bin (<< 1.10.0-0~), python-gdal (<< 2.4.3~)
+Replaces: python-gdal (<< 2.4.3~)
+Filename: ./gdal-bin_3.8.4+dfsg-3ubuntu3_amd64.deb
+Size: 276824
+MD5sum: cda7d4f87d500a1ef23b27de3e297370
+SHA1: 435ab70de87f7d38562f537bdbc2256d0e55a247
+SHA256: 0d6e4cde1cb5574b16ae912d1b921abc140c6845a5dfe295f677fc3d6048de30
+Section: science
+Priority: optional
+Multi-Arch: foreign
+Homepage: http://www.gdal.org/
+Description: Geospatial Data Abstraction Library - Utility programs
+ GDAL is a translator library for raster geospatial data formats.
+ As a library, it presents a single abstract data model to the
+ calling application for all supported formats. The related OGR
+ library (which lives within the GDAL source tree) provides
+ a similar capability for simple features vector data.
+ .
+ GDAL supports 40+ popular data formats, including commonly used
+ ones (GeoTIFF, JPEG, PNG and more) as well as the ones used in
+ GIS and remote sensing software packages (ERDAS Imagine,
+ ESRI Arc/Info, ENVI, PCI Geomatics). Also supported many remote
+ sensing and scientific data distribution formats such as HDF,
+ EOS FAST, NOAA L1B, NetCDF, FITS.
+ .
+ OGR library supports popular vector formats like ESRI Shapefile,
+ TIGER data, S57, MapInfo File, DGN, GML and more.
+ .
+ This package contains utility programs, based on GDAL/OGR library,
+ namely gdal_translate, gdalinfo, gdaladdo, gdalwarp, ogr2ogr, ogrinfo,
+ ogrtindex.
+Original-Maintainer: Debian GIS Project <pkg-grass-devel@lists.alioth.debian.org>
+
+Package: gdal-data
+Source: gdal
+Version: 3.8.4+dfsg-3ubuntu3
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 2753
+Filename: ./gdal-data_3.8.4+dfsg-3ubuntu3_all.deb
+Size: 261442
+MD5sum: 239d105eb5af2808f6de58b40da27ee7
+SHA1: e2c84c39b42cb41115e6599805444c9f42fc7297
+SHA256: 416e34cc440f06e84747ddf797e2a8f6a850d96389c78ece5e221d9846420a3f
+Section: science
+Priority: optional
+Multi-Arch: foreign
+Homepage: http://www.gdal.org/
+Description: Geospatial Data Abstraction Library - Data files
+ GDAL is a translator library for raster geospatial data formats.
+ As a library, it presents a single abstract data model to the
+ calling application for all supported formats. The related OGR
+ library (which lives within the GDAL source tree) provides
+ a similar capability for simple features vector data.
+ .
+ GDAL supports 40+ popular data formats, including commonly used
+ ones (GeoTIFF, JPEG, PNG and more) as well as the ones used in
+ GIS and remote sensing software packages (ERDAS Imagine,
+ ESRI Arc/Info, ENVI, PCI Geomatics). Also supported many remote
+ sensing and scientific data distribution formats such as HDF,
+ EOS FAST, NOAA L1B, NetCDF, FITS.
+ .
+ OGR library supports popular vector formats like ESRI Shapefile,
+ TIGER data, S57, MapInfo File, DGN, GML and more.
+ .
+ This package contains the GDAL data files.
+Original-Maintainer: Debian GIS Project <pkg-grass-devel@lists.alioth.debian.org>
+
+Package: gdal-plugins
+Source: gdal
+Version: 3.8.4+dfsg-3ubuntu3
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 377
+Filename: ./gdal-plugins_3.8.4+dfsg-3ubuntu3_amd64.deb
+Size: 24804
+MD5sum: 2e12359c765c9dfe57e363f814cef248
+SHA1: 93d66e888f9dcdcdbab382de0fc11b342f75fc1e
+SHA256: 266d74a9ae7620e3d9abed204d58fd9d4bef86af58d97f8fd6a3d59b93e2daf0
+Section: science
+Priority: optional
+Multi-Arch: same
+Homepage: http://www.gdal.org/
+Description: Geospatial Data Abstraction Library - Plugins
+ GDAL is a translator library for raster geospatial data formats.
+ As a library, it presents a single abstract data model to the
+ calling application for all supported formats. The related OGR
+ library (which lives within the GDAL source tree) provides
+ a similar capability for simple features vector data.
+ .
+ GDAL supports 40+ popular data formats, including commonly used
+ ones (GeoTIFF, JPEG, PNG and more) as well as the ones used in
+ GIS and remote sensing software packages (ERDAS Imagine,
+ ESRI Arc/Info, ENVI, PCI Geomatics). Also supported many remote
+ sensing and scientific data distribution formats such as HDF,
+ EOS FAST, NOAA L1B, NetCDF, FITS.
+ .
+ OGR library supports popular vector formats like ESRI Shapefile,
+ TIGER data, S57, MapInfo File, DGN, GML and more.
+ .
+ This package contains data for the plugins.
+Original-Maintainer: Debian GIS Project <pkg-grass-devel@lists.alioth.debian.org>
+
+Package: hdf5-tools
+Source: hdf5
+Version: 1.10.10+repack-3.1ubuntu4
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 1159
+Depends: libc6 (>= 2.38), libhdf5-103-1t64
+Filename: ./hdf5-tools_1.10.10+repack-3.1ubuntu4_amd64.deb
+Size: 333178
+MD5sum: b450c69a7ecb1d60b8bf961d64772c54
+SHA1: 2283163369e862b022600183918e60214e849224
+SHA256: 31097d5b87b6da7a230f314db275cf87a5107dd950d37f9fb467599c0abe2cdb
+Section: science
+Priority: optional
+Homepage: http://hdfgroup.org/HDF5/
+Description: HDF5 - Runtime tools
+ Hierarchical Data Format 5 (HDF5) is a file format and library for
+ storing scientific data.  HDF5 was designed and implemented to address
+ the deficiencies of HDF4.x. It has a more powerful and flexible data
+ model, supports files larger than 2 GB, and supports parallel I/O.
+ .
+ This package contains runtime tools for HDF5.
+Original-Maintainer: Gilles Filippini <pini@debian.org>
+
+Package: less
+Version: 590-2ubuntu2.1
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 309
+Depends: libc6 (>= 2.34), libtinfo6 (>= 6)
+Filename: ./less_590-2ubuntu2.1_amd64.deb
+Size: 141544
+MD5sum: 4fa22ce1c9a77178c0122a368a61e031
+SHA1: 2afdd29124150a9862324d7d31201186478677c8
+SHA256: f26481c7f5e492e7536f9e75a9aa237f4772b637cdc933f356bc567e180b8a39
+Section: text
+Priority: important
+Multi-Arch: foreign
+Homepage: http://www.greenwoodsoftware.com/less/
+Description: pager program similar to more
+ This package provides "less", a file pager (that is, a memory-efficient
+ utility for displaying text one screenful at a time). Less has many
+ more features than the basic pager "more". As part of the GNU project,
+ it is widely regarded as the standard pager on UNIX-derived systems.
+ .
+ Also provided are "lessecho", a simple utility for ensuring arguments
+ with spaces are correctly quoted; "lesskey", a tool for modifying the
+ standard (vi-like) keybindings; and "lesspipe", a filter for specific
+ types of input, such as .doc or .txt.gz files.
+Original-Maintainer: Milan Kupcevic <milan@debian.org>
+
+Package: libc6-dev
+Source: glibc
+Version: 2.39-0ubuntu8.7
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 13112
+Depends: libc6 (= 2.39-0ubuntu8.7), libc-dev-bin (= 2.39-0ubuntu8.7), linux-libc-dev, libcrypt-dev, rpcsvc-proto
+Suggests: glibc-doc, manpages-dev
+Conflicts: libc0.3-dev, libc6.1-dev
+Breaks: binutils (<< 2.38), catch (<< 1.12.2-0.1), heimdal-multidev (<= 7.7.0+dfsg-4), igblast (<= 1.19.0-1), libassimp-dev (<= 5.2.4~ds0-1), libasyncns-dev (<= 0.8-6build2), libatm1-dev (<= 1:2.5.1-4), libaws20-dev (<= 20.2-2+b1), libboinc-app-dev (<= 7.20.2+dfsg-1), libbson-dev (<= 1.22.0-1), libc6-dev-amd64-cross (<< 2.39~), libcups2-dev (<= 2.4.2-1), libdeal.ii-dev (<= 9.4.0-1), libdkim-dev (<= 1:1.0.21-4build3), libdolfin-dev-common (<= 2019.2.0~git20220407.d29e24d-5), libeckit-dev (<= 1.20.0-1), libfclib-dev (<= 3.1.0+dfsg-2), libfltk1.3-dev (<= 1.3.8-4+b1), libghc-resolv-dev (<= 0.1.2.0-3), libghc-resolv-prof (<= 0.1.2.0-3), libglib2.0-dev (<= 2.72.3-1), libgloox-dev (<= 1.0.24-2+b1), libhesiod-dev (<= 3.2.1-3.1+b1), libinfinity-0.7-dev (<= 0.7.2-1build1), libinsighttoolkit4-dev (<= 4.13.3withdata-dfsg2-3+b1), libinsighttoolkit5-dev (<= 5.2.1-5+b1), libismrmrd-dev (<= 1.8.0-2), libldap-dev (<= 2.5.12+dfsg-2), liblog4cplus-dev (<= 2.0.7-1), libloudmouth1-dev (<= 1.5.4-1), libmgl-dev (<= 8.0.1-2), libmimalloc2.0 (<= 2.0.6+ds-1), libminc-dev (<= 2.4.03-5), libmongoc-dev (<= 1.22.1-1), libmrpt-ros1bridge-dev (<= 1:2.4.9+ds-4+b2), libmysqlclient-dev (<= 8.0.29-1), libnetcdf-dev (<= 1:4.9.0-3), libnetcdf-mpi-dev (<= 1:4.9.0-1), libnetcdf-pnetcdf-dev (<= 1:4.9.0-1), libnfsidmap-dev (<= 1:2.6.1-2), libns3-dev (<= 3.36.1+dfsg-4), libola-dev (<= 0.10.8.nojsmin-2), libopenafs-dev (<= 1.8.8.1-3), libopendkim-dev (<= 2.11.0~beta2-7), libopendmarc-dev (<= 1.4.2-1), libopenms-dev (<= 2.6.0+cleaned1-3build4), libopenzwave1.6-dev (<= 1.6.1914+ds-1), libpg-query-dev (<= 13-2.1.2-2), librbl-dev (<= 2.11.0~beta2-7), libre-dev (<= 1.1.0-1build1), libshishi-dev (<= 1.0.2-11), libslurm-dev (<= 21.08.8.2-1), libsocksd0-dev (<= 1.4.2+dfsg-7build7), libspf2-dev (<= 1.2.10-7.1+b1), libstrophe-dev (<= 0.12.1-2), libtaningia-dev (<= 0.2.2-2), libtrilinos-amesos-dev (<= 13.2.0-3), libtrilinos-amesos2-dev (<= 13.2.0-3), libtrilinos-anasazi-dev (<= 13.2.0-3), libtrilinos-aztecoo-dev (<= 13.2.0-3), libtrilinos-belos-dev (<= 13.2.0-3), libtrilinos-epetra-dev (<= 13.2.0-3), libtrilinos-epetraext-dev (<= 13.2.0-3), libtrilinos-galeri-dev (<= 13.2.0-3), libtrilinos-ifpack-dev (<= 13.2.0-3), libtrilinos-ifpack2-dev (<= 13.2.0-3), libtrilinos-intrepid-dev (<= 13.2.0-3), libtrilinos-intrepid2-dev (<= 13.2.0-3), libtrilinos-isorropia-dev (<= 13.2.0-3), libtrilinos-kokkos-dev (<= 13.2.0-3), libtrilinos-kokkos-kernels-dev (<= 13.2.0-3), libtrilinos-komplex-dev (<= 13.2.0-3), libtrilinos-ml-dev (<= 13.2.0-3), libtrilinos-moertel-dev (<= 13.2.0-3), libtrilinos-muelu-dev (<= 13.2.0-3), libtrilinos-nox-dev (<= 13.2.0-3), libtrilinos-phalanx-dev (<= 13.2.0-3), libtrilinos-pike-dev (<= 13.2.0-3), libtrilinos-piro-dev (<= 13.2.0-3), libtrilinos-pliris-dev (<= 13.2.0-3), libtrilinos-rol-dev (<= 13.2.0-3), libtrilinos-rtop-dev (<= 13.2.0-3), libtrilinos-rythmos-dev (<= 13.2.0-3), libtrilinos-sacado-dev (<= 13.2.0-3), libtrilinos-shylu-dev (<= 13.2.0-3), libtrilinos-stokhos-dev (<= 13.2.0-3), libtrilinos-stratimikos-dev (<= 13.2.0-3), libtrilinos-teko-dev (<= 13.2.0-3), libtrilinos-teuchos-dev (<= 13.2.0-3), libtrilinos-thyra-dev (<= 13.2.0-3), libtrilinos-tpetra-dev (<= 13.2.0-3), libtrilinos-trilinoscouplings-dev (<= 13.2.0-3), libtrilinos-triutils-dev (<= 13.2.0-3), libtrilinos-xpetra-dev (<= 13.2.0-3), libtrilinos-zoltan2-dev (<= 13.2.0-3), libvbr-dev (<= 2.11.0~beta2-7), libvisp-dev (<= 3.5.0-2+b1), libvotca-dev (<= 2022-3), libvtk6-dev (<= 6.3.0+dfsg2-8.1+b1), libvtk7-dev (<= 7.1.1+dfsg2-10.2), open-vm-tools-dev (<= 2:12.0.5-2), pidgin-librvp (<= 0.9.7cvs-3), proftpd-dev (<= 1.3.7d+dfsg-2), slurm-wlm-basic-plugins-dev (<= 21.08.8.2-1)
+Replaces: libc6 (<< 2.38-1ubuntu1)
+Provides: libc-dev (= 2.39-0ubuntu8.7)
+Filename: ./libc6-dev_2.39-0ubuntu8.7_amd64.deb
+Size: 2124026
+MD5sum: 8ca09fa2ac0b506bf63200116e9928a5
+SHA1: 35a195e4f2e47a259dd90d2e19e4a3071cfb3ff0
+SHA256: bbf5a155039042634961a61276650631ee47b9e721f91f8dbb731b0bbe046df3
+Section: libdevel
+Priority: optional
+Multi-Arch: same
+Homepage: https://www.gnu.org/software/libc/libc.html
+Description: GNU C Library: Development Libraries and Header Files
+ Contains the symlinks, headers, and object files needed to compile
+ and link programs which use the standard C library.
+Original-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+Original-Vcs-Browser: https://salsa.debian.org/glibc-team/glibc
+Original-Vcs-Git: https://salsa.debian.org/glibc-team/glibc.git
+
+Package: libgdal-dev
+Source: gdal
+Version: 3.8.4+dfsg-3ubuntu3
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 1745
+Depends: libgdal34t64 (= 3.8.4+dfsg-3ubuntu3), libc6-dev, libarmadillo-dev, libblosc-dev, libcfitsio-dev, libcurl4-gnutls-dev | libcurl-ssl-dev, libdeflate-dev, libexpat1-dev, libfreexl-dev, libfyba-dev, libgeos-dev, libgeotiff-dev (>= 1.5.0), libgif-dev, libhdf4-alt-dev, libhdf5-dev, libheif-dev, libjpeg-dev, libjson-c-dev, libkml-dev, libltdl-dev, liblz4-dev, liblzma-dev, default-libmysqlclient-dev, libnetcdf-dev, libogdi-dev, libopenjp2-7-dev, libpcre2-dev, libpng-dev, libpoppler-private-dev, libpq-dev, libproj-dev (>= 6.0.0), libqhull-dev, libspatialite-dev, libsqlite3-dev, libtiff-dev, liburiparser-dev, libwebp-dev, libxerces-c-dev, libxml2-dev, libzstd-dev, unixodbc-dev
+Filename: ./libgdal-dev_3.8.4+dfsg-3ubuntu3_amd64.deb
+Size: 211264
+MD5sum: 964340d184d97120c07372e4c0e6b4fd
+SHA1: 26bd6fbf6aae5eb56cd02e5dbc7786b95eff383d
+SHA256: b5d86c68ddc2c1e83760ef71ee776d8ad33d4199933996976c3b6fdfb847273c
+Section: libdevel
+Priority: optional
+Homepage: http://www.gdal.org/
+Description: Geospatial Data Abstraction Library - Development files
+ GDAL is a translator library for raster geospatial data formats.
+ As a library, it presents a single abstract data model to the
+ calling application for all supported formats. The related OGR
+ library (which lives within the GDAL source tree) provides
+ a similar capability for simple features vector data.
+ .
+ GDAL supports many popular data formats, including commonly used
+ ones (GeoTIFF, JPEG, PNG and more) as well as the ones used in
+ GIS and remote sensing software packages (ERDAS Imagine,
+ ESRI Arc/Info, ENVI, PCI Geomatics). Also supported many remote
+ sensing and scientific data distribution formats such as HDF,
+ EOS FAST, NOAA L1B, NetCDF, FITS.
+ .
+ OGR library supports popular vector formats like ESRI Shapefile,
+ TIGER data, S57, MapInfo File, DGN, GML and more.
+ .
+ This package contains the files needed to develop a software that
+ will use the GDAL/OGR (headers, static objects, configuration script).
+Original-Maintainer: Debian GIS Project <pkg-grass-devel@lists.alioth.debian.org>
+
+Package: libgdal34t64
+Source: gdal
+Version: 3.8.4+dfsg-3ubuntu3
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 24834
+Depends: gdal-data (>= 3.8.4+dfsg-3ubuntu3), gdal-plugins (>= 3.8.4+dfsg-3ubuntu3), libaec0 (>= 1.1.2), libarmadillo12 (>= 1:12.6.7+dfsg), libblosc1 (>= 1.17.1+ds1), libc6 (>= 2.38), libcfitsio10t64 (>= 4.2.0~), libcurl4t64 (>= 7.66.0), libdeflate0 (>= 1.0), libexpat1 (>= 2.0.1), libfreexl1 (>= 1.0.0), libfyba0t64 (>= 4.1.1), libgcc-s1 (>= 4.2), libgeos-c1t64 (>= 3.11.0), libgeotiff5 (>= 1.6.0), libgif7 (>= 5.1), libhdf4-0-alt (>= 4.2r4), libhdf5-103-1t64, libheif1 (>= 1.4.0), libjpeg8 (>= 8c), libjson-c5 (>= 0.15), libkmlbase1t64 (>= 1.3.0), libkmldom1t64 (>= 1.3.0), libkmlengine1t64 (>= 1.3.0), liblz4-1 (>= 0.0~r130), liblzma5 (>= 5.1.1alpha+20110809), libmysqlclient21 (>= 8.0.11), libnetcdf19t64 (>= 1:4.0.0), libodbc2 (>= 2.3.1), libodbcinst2 (>= 2.3.1), libogdi4.1 (>= 3.2.0), libopenjp2-7 (>= 2.5.0), libpcre2-8-0 (>= 10.22), libpng16-16t64 (>= 1.6.2), libpoppler134 (>= 24.02.0), libpq5, libproj25 (>= 9.4.0), libqhull-r8.0 (>= 2020.1), libspatialite8t64 (>= 4.2.0), libsqlite3-0 (>= 3.37.0), libssl3t64 (>= 3.0.0), libstdc++6 (>= 13.1), libtiff6 (>= 4.5.0~rc1), libwebp7 (>= 1.3.2), libxerces-c3.2t64, libxml2 (>= 2.7.4), libzstd1 (>= 1.5.5), zlib1g (>= 1:1.2.2)
+Recommends: proj-bin
+Breaks: libgdal34 (<< 3.8.4+dfsg-3ubuntu3)
+Replaces: libgdal34
+Provides: libgdal34 (= 3.8.4+dfsg-3ubuntu3)
+Filename: ./libgdal34t64_3.8.4+dfsg-3ubuntu3_amd64.deb
+Size: 8346038
+MD5sum: 97d8a77fb29831d28565196e58d59061
+SHA1: 33b444a4b0f53d570c081e0194a7015bd1437176
+SHA256: febc53aa73c8f0e9234ecbefb0f2bd93d7fa34aee8c7dde65fbc2405ac1a90de
+Section: libs
+Priority: optional
+Multi-Arch: same
+Homepage: http://www.gdal.org/
+Description: Geospatial Data Abstraction Library
+ GDAL is a translator library for raster geospatial data formats.
+ As a library, it presents a single abstract data model to the
+ calling application for all supported formats. The related OGR
+ library (which lives within the GDAL source tree) provides
+ a similar capability for simple features vector data.
+ .
+ GDAL supports many popular data formats, including commonly used
+ ones (GeoTIFF, JPEG, PNG and more) as well as the ones used in
+ GIS and remote sensing software packages (ERDAS Imagine,
+ ESRI Arc/Info, ENVI, PCI Geomatics). Also supported many remote
+ sensing and scientific data distribution formats such as HDF,
+ EOS FAST, NOAA L1B, NetCDF, FITS.
+ .
+ OGR library supports popular vector formats like ESRI Shapefile,
+ TIGER data, S57, MapInfo File, DGN, GML and more.
+ .
+ This package contains the shared library.
+Original-Maintainer: Debian GIS Project <pkg-grass-devel@lists.alioth.debian.org>
+
+Package: libhdf5-103-1t64
+Source: hdf5
+Version: 1.10.10+repack-3.1ubuntu4
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 3712
+Depends: libc6 (>= 2.38), libcurl4 (>= 7.16.2), libssl3 (>= 3.0.0), libsz2 (>= 1.1.2), zlib1g (>= 1:1.1.4)
+Breaks: libhdf5-103 (<< 1.10.5), libhdf5-103-1 (<< 1.10.10+repack-3.1ubuntu4)
+Replaces: libhdf5-103 (<< 1.10.5), libhdf5-103-1
+Provides: libhdf5-103-1 (= 1.10.10+repack-3.1ubuntu4)
+Filename: ./libhdf5-103-1t64_1.10.10+repack-3.1ubuntu4_amd64.deb
+Size: 1269972
+MD5sum: fd07954e2e99aaeedda09ff442346446
+SHA1: 634215848ecf9c283f77073d162245f83f8e4d92
+SHA256: 875e7de8aff8e6af3df2ed8b4455f767c3e9b021652a1ee2bd924f76932d22d1
+Section: libs
+Priority: optional
+Multi-Arch: same
+Homepage: http://hdfgroup.org/HDF5/
+Description: HDF5 C runtime files - serial version
+ Hierarchical Data Format 5 (HDF5) is a file format and library for
+ storing scientific data.  HDF5 was designed and implemented to address
+ the deficiencies of HDF4.x. It has a more powerful and flexible data
+ model, supports files larger than 2 GB, and supports parallel I/O.
+ .
+ This package contains the C runtime files for serial platforms.
+Original-Maintainer: Gilles Filippini <pini@debian.org>
+
+Package: libhdf5-cpp-103-1t64
+Source: hdf5
+Version: 1.10.10+repack-3.1ubuntu4
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 610
+Depends: libc6 (>= 2.14), libgcc-s1 (>= 3.3.1), libhdf5-103-1t64, libstdc++6 (>= 13.1)
+Breaks: libhdf5-cpp-103 (<< 1.10.5), libhdf5-cpp-103-1 (<< 1.10.10+repack-3.1ubuntu4)
+Replaces: libhdf5-cpp-103 (<< 1.10.5), libhdf5-cpp-103-1
+Provides: libhdf5-cpp-103-1 (= 1.10.10+repack-3.1ubuntu4)
+Filename: ./libhdf5-cpp-103-1t64_1.10.10+repack-3.1ubuntu4_amd64.deb
+Size: 127786
+MD5sum: a022ef5fa9555135d4ef2c5e7f32d26e
+SHA1: c9c47695289bd3d8946e2f36c31a31fbdcafda27
+SHA256: 70161b612a610439b1153cbf41747b935fb708a0b80410a71e63e7f66b74d4ad
+Section: libs
+Priority: optional
+Multi-Arch: same
+Homepage: http://hdfgroup.org/HDF5/
+Description: HDF5 - C++ runtime files - serial version
+ Hierarchical Data Format 5 (HDF5) is a file format and library for
+ storing scientific data.  HDF5 was designed and implemented to address
+ the deficiencies of HDF4.x. It has a more powerful and flexible data
+ model, supports files larger than 2 GB, and supports parallel I/O.
+ .
+ This package contains the C++ runtime files for serial platforms.
+Original-Maintainer: Gilles Filippini <pini@debian.org>
+
+Package: libhdf5-dev
+Source: hdf5
+Version: 1.10.10+repack-3.1ubuntu4
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 12697
+Depends: libhdf5-103-1t64 (= 1.10.10+repack-3.1ubuntu4), libhdf5-fortran-102t64 (= 1.10.10+repack-3.1ubuntu4), libhdf5-hl-100t64 (= 1.10.10+repack-3.1ubuntu4), libhdf5-hl-fortran-100t64 (= 1.10.10+repack-3.1ubuntu4), libhdf5-cpp-103-1t64 (= 1.10.10+repack-3.1ubuntu4), libhdf5-hl-cpp-100t64 (= 1.10.10+repack-3.1ubuntu4), zlib1g-dev, libjpeg-dev, libaec-dev, libcurl4-openssl-dev | libcurl-dev, libssl-dev, hdf5-helpers
+Suggests: libhdf5-doc
+Breaks: libhdf5-serial-dev (<< 1.8.12-9~)
+Replaces: libhdf5-serial-dev (<< 1.8.12-9~)
+Provides: libhdf5-serial-dev
+Filename: ./libhdf5-dev_1.10.10+repack-3.1ubuntu4_amd64.deb
+Size: 2777090
+MD5sum: 8c1bee5b102c23a1e91413fb0bf280c7
+SHA1: cb17364a0d8845c4a37962031281dbc8af1ab79e
+SHA256: 9e69e98a4d31da10eeb29257c13e0d178e6cc317fb01eeeacb7df380690a3735
+Section: libdevel
+Priority: optional
+Homepage: http://hdfgroup.org/HDF5/
+Description: HDF5 - development files - serial version
+ Hierarchical Data Format 5 (HDF5) is a file format and library for
+ storing scientific data.  HDF5 was designed and implemented to address
+ the deficiencies of HDF4.x. It has a more powerful and flexible data
+ model, supports files larger than 2 GB, and supports parallel I/O.
+ .
+ This package contains development files for serial platforms.
+Original-Maintainer: Gilles Filippini <pini@debian.org>
+
+Package: libhdf5-hl-100t64
+Source: hdf5
+Version: 1.10.10+repack-3.1ubuntu4
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 186
+Depends: libc6 (>= 2.38), libhdf5-103-1t64
+Conflicts: libhdf5-100, libhdf5-101, libhdf5-102, libhdf5-103 (<< 1.10.5)
+Breaks: libhdf5-hl-100 (<< 1.10.10+repack-3.1ubuntu4)
+Replaces: libhdf5-100, libhdf5-101, libhdf5-102, libhdf5-103 (<< 1.10.5), libhdf5-hl-100
+Provides: libhdf5-hl-100 (= 1.10.10+repack-3.1ubuntu4)
+Filename: ./libhdf5-hl-100t64_1.10.10+repack-3.1ubuntu4_amd64.deb
+Size: 56016
+MD5sum: f728cfba8c5d090bd8022939c1df18c3
+SHA1: 0e05c8f18059a94719ad5fac7c702011c93a4633
+SHA256: ff89c6606df070ab1e4adbd9c66c46820acaed39ab61bca5e3ca947feb05fd9d
+Section: libs
+Priority: optional
+Multi-Arch: same
+Homepage: http://hdfgroup.org/HDF5/
+Description: HDF5 High Level runtime files - serial version
+ Hierarchical Data Format 5 (HDF5) is a file format and library for
+ storing scientific data.  HDF5 was designed and implemented to address
+ the deficiencies of HDF4.x. It has a more powerful and flexible data
+ model, supports files larger than 2 GB, and supports parallel I/O.
+ .
+ This package contains the high level C API runtime files for serial platforms.
+Original-Maintainer: Gilles Filippini <pini@debian.org>
+
+Package: libproj-dev
+Source: proj
+Version: 9.4.0-1build2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 632
+Depends: libproj25 (= 9.4.0-1build2), libcurl4-gnutls-dev | libcurl-ssl-dev, libsqlite3-dev, libtiff-dev
+Suggests: proj-bin
+Filename: ./libproj-dev_9.4.0-1build2_amd64.deb
+Size: 75938
+MD5sum: b916b714d893f2a809c7e688464c7e85
+SHA1: b73c69f2841afb7291e7754eda597965fd6a6c06
+SHA256: 81e53a5f96c4687b545561d32b15ca64cccc21e0ec503964c192cd6a352b9834
+Section: libdevel
+Priority: optional
+Multi-Arch: same
+Homepage: https://proj.org/
+Description: Cartographic projection library (development files)
+ Proj and invproj perform respective forward and inverse transformation
+ of cartographic data to or from Cartesian data with a wide range of
+ selectable projection functions (over 100 projections).
+ .
+ Geod and invgeod perform geodesic (Great Circle) computations for
+ determining latitude, longitude and back azimuth of a terminus point given
+ a initial point latitude, longitude, azimuth and distance (direct) or the
+ forward and back azimuths and distance between an initial and terminus
+ point latitudes and longitudes (inverse).
+ .
+ This package provides the PROJ development files.
+Original-Maintainer: Debian GIS Project <pkg-grass-devel@lists.alioth.debian.org>
+
+Package: libproj25
+Source: proj
+Version: 9.4.0-1build2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 4068
+Depends: proj-data (>= 9.4.0-1build2), libc6 (>= 2.38), libcurl3t64-gnutls (>= 7.16.2), libgcc-s1 (>= 4.0), libsqlite3-0 (>= 3.7.5), libstdc++6 (>= 13.1), libtiff6 (>= 4.0.3)
+Suggests: proj-bin
+Filename: ./libproj25_9.4.0-1build2_amd64.deb
+Size: 1395736
+MD5sum: a4514dd7d5638035594f940d9c934e3e
+SHA1: 4098ede3735593cd9cc8a7ae1afe30eed7cd823e
+SHA256: d98af14c3b9db02e4216437005a36f4ecdf52b2935038f380f63969164216410
+Section: libs
+Priority: optional
+Multi-Arch: same
+Homepage: https://proj.org/
+Description: Cartographic projection library
+ Proj and invproj perform respective forward and inverse transformation
+ of cartographic data to or from Cartesian data with a wide range of
+ selectable projection functions (over 100 projections).
+ .
+ Geod and invgeod perform geodesic (Great Circle) computations for
+ determining latitude, longitude and back azimuth of a terminus point given
+ a initial point latitude, longitude, azimuth and distance (direct) or the
+ forward and back azimuths and distance between an initial and terminus
+ point latitudes and longitudes (inverse).
+ .
+ This package provides the PROJ shared library used by tools and third
+ parties programs.
+Original-Maintainer: Debian GIS Project <pkg-grass-devel@lists.alioth.debian.org>
+
+Package: libstdc++-13-dev
+Source: gcc-13
+Version: 13.3.0-6ubuntu2~24.04.1
+Architecture: amd64
+Maintainer: Ubuntu Core developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 21662
+Depends: gcc-13-base (= 13.3.0-6ubuntu2~24.04.1), libgcc-13-dev (= 13.3.0-6ubuntu2~24.04.1), libstdc++6 (>= 13.3.0-6ubuntu2~24.04.1), libc6-dev (>= 2.13-0ubuntu6)
+Suggests: libstdc++-13-doc
+Provides: libstdc++-dev
+Filename: ./libstdc++-13-dev_13.3.0-6ubuntu2~24.04.1_amd64.deb
+Size: 2419834
+MD5sum: d4c7bf2ddf49cb3f973620bf04f750ca
+SHA1: 1b0450c52b08980eb6118ddb190d2c04fe2eec82
+SHA256: ee5633e863e19c3381ed97842ce35ed32ede96a3d1ae4e94c051d3036fe21347
+Section: libdevel
+Priority: optional
+Multi-Arch: same
+Homepage: http://gcc.gnu.org/
+Description: GNU Standard C++ Library v3 (development files)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+Original-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+
+Package: linux-libc-dev
+Source: linux
+Version: 6.8.0-101.101
+Architecture: amd64
+Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
+Installed-Size: 7602
+Conflicts: linux-kernel-headers
+Replaces: linux-kernel-headers
+Provides: aufs-dev, linux-kernel-headers
+Filename: ./linux-libc-dev_6.8.0-101.101_amd64.deb
+Size: 2041550
+MD5sum: 8d548108e54f7d82f08789b1ae566880
+SHA1: 70fe4e2c74fcc14bef8083d43e22a2f06d69af05
+SHA256: 8d77c0fdcb8b9c0abbdfea83f2e031527514b5a8fe02791e31d54db8bb8f3698
+Section: devel
+Priority: optional
+Multi-Arch: same
+Description: Linux Kernel Headers for development
+ This package provides headers from the Linux kernel.  These headers
+ are used by the installed headers for GNU glibc and other system
+ libraries. They are NOT meant to be used to build third-party modules for
+ your kernel. Use linux-headers-* packages for that.
+
+Package: make
+Source: make-dfsg
+Version: 4.3-4.1build2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 404
+Depends: libc6 (>= 2.38)
+Suggests: make-doc
+Conflicts: make-guile
+Replaces: make-guile
+Filename: ./make_4.3-4.1build2_amd64.deb
+Size: 179752
+MD5sum: c7d04f7402e6979c2f3d3f1ebed316f6
+SHA1: c9ab7c7949c68820cf113cd3718bfff53edbf628
+SHA256: 1fe6a815b56c7b6e9ce4086a363f09444bbd0a0d30e230c453d0b78e44b57a99
+Section: devel
+Priority: optional
+Multi-Arch: allowed
+Homepage: https://www.gnu.org/software/make/
+Description: utility for directing compilation
+ GNU Make is a utility which controls the generation of executables
+ and other target files of a program from the program's source
+ files. It determines automatically which pieces of a large program
+ need to be (re)created, and issues the commands to (re)create
+ them. Make can be used to organize any task in which targets (files)
+ are to be automatically updated based on input files whenever the
+ corresponding input is newer --- it is not limited to building
+ computer programs. Indeed, Make is a general purpose dependency
+ solver.
+Original-Maintainer: Manoj Srivastava <srivasta@debian.org>
+
+Package: proj-bin
+Source: proj
+Version: 9.4.0-1build2
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 521
+Depends: libc6 (>= 2.38), libgcc-s1 (>= 3.3.1), libproj25 (>= 9.4.0), libstdc++6 (>= 13.1)
+Filename: ./proj-bin_9.4.0-1build2_amd64.deb
+Size: 163914
+MD5sum: 0a13c36c35722edaf53799689ef53c5d
+SHA1: a6f34434ddfa7b4ffba17f69c6e24dd68509a98b
+SHA256: c4d198319d6430802380214ee75bf8762f0b316e6dc642912cd621707e2cbba5
+Section: science
+Priority: optional
+Homepage: https://proj.org/
+Description: Cartographic projection library (tools)
+ Proj and invproj perform respective forward and inverse transformation
+ of cartographic data to or from Cartesian data with a wide range of
+ selectable projection functions (over 100 projections).
+ .
+ Geod and invgeod perform geodesic (Great Circle) computations for
+ determining latitude, longitude and back azimuth of a terminus point given
+ a initial point latitude, longitude, azimuth and distance (direct) or the
+ forward and back azimuths and distance between an initial and terminus
+ point latitudes and longitudes (inverse).
+ .
+ This package provides the PROJ binary tools.
+Original-Maintainer: Debian GIS Project <pkg-grass-devel@lists.alioth.debian.org>
+
+Package: proj-data
+Source: proj
+Version: 9.4.0-1build2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 23515
+Filename: ./proj-data_9.4.0-1build2_all.deb
+Size: 7885446
+MD5sum: 1bf09e269b63ce4dcacdf9e45a130997
+SHA1: 5aa84dcbe62c5614e4efd28d57a4c4941ddd2e8d
+SHA256: ea98bac78c370af5658893d6db003838e73543bec894d6d6b48047291963f213
+Section: libs
+Priority: optional
+Multi-Arch: foreign
+Homepage: https://proj.org/
+Description: Cartographic projection filter and library (datum package)
+ Proj and invproj perform respective forward and inverse transformation
+ of cartographic data to or from Cartesian data with a wide range of
+ selectable projection functions (over 100 projections).
+ .
+ Geod and invgeod perform geodesic (Great Circle) computations for
+ determining latitude, longitude and back azimuth of a terminus point given
+ a initial point latitude, longitude, azimuth and distance (direct) or the
+ forward and back azimuths and distance between an initial and terminus
+ point latitudes and longitudes (inverse).
+ .
+ This package contains auxiliary projection datum grids used by the
+ library and tools.
+Original-Maintainer: Debian GIS Project <pkg-grass-devel@lists.alioth.debian.org>
+
+Package: vim-tiny
+Source: vim
+Version: 2:9.1.0016-1ubuntu7.9
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 1807
+Depends: vim-common (= 2:9.1.0016-1ubuntu7.9), libacl1 (>= 2.2.23), libc6 (>= 2.34), libselinux1 (>= 3.1~), libtinfo6 (>= 6)
+Suggests: indent
+Provides: editor
+Filename: ./vim-tiny_2%3a9.1.0016-1ubuntu7.9_amd64.deb
+Size: 803420
+MD5sum: c042fa4bd764d15496da7e0ffef0d37e
+SHA1: 70d233df842a765c8ba6ac6594ddd7f8eb3b9220
+SHA256: 928cb1e49a287b14c57dcb5133c6d7c8fb64ca73272eaa3f6225544e949e2c81
+Section: editors
+Priority: important
+Homepage: https://www.vim.org/
+Description: Vi IMproved - enhanced vi editor - compact version
+ Vim is an almost compatible version of the UNIX editor Vi.
+ .
+ This package contains a minimal version of Vim compiled with no GUI and
+ a small subset of features. This package's sole purpose is to provide
+ the vi binary for base installations.
+ .
+ If a vim binary is wanted, try one of the following more featureful
+ packages: vim, vim-nox, vim-motif, or vim-gtk3.
+Original-Maintainer: Debian Vim Maintainers <team+vim@tracker.debian.org>
+

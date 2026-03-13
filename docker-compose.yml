@@ -1,0 +1,35 @@
+services:
+  bag-converter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bag-converter:latest
+    container_name: bag-converter
+
+    # Restart automatically after host reboots or Docker daemon restarts.
+    # Use `docker compose stop` or `./dc.sh stop` to stop intentionally.
+    restart: unless-stopped
+
+    # Keep stdin/tty open so `docker exec -it bag-converter bash` works cleanly.
+    stdin_open: true
+    tty: true
+
+    # ── Volumes ────────────────────────────────────────────────────────────────
+    # Bind-mount host directories into the container so:
+    #   - BAG files placed in ./test_data/ are immediately visible inside
+    #   - GeoTiffs written to /workspace/output/ appear on the host in ./output/
+    #   - src/ is live-mounted so you can edit code on the host and rebuild
+    #     inside the container without rebuilding the image
+    volumes:
+      - ./test_data:/workspace/test_data
+      - ./output:/workspace/output
+      - ./src:/workspace/src
+      - ./docs:/workspace/docs
+
+    # ── Environment ────────────────────────────────────────────────────────────
+    environment:
+      - TERM=xterm-256color
+      - GDAL_PAM_ENABLED=NO     # suppress .aux.xml sidecar files
+
+    # ── Working directory ──────────────────────────────────────────────────────
+    working_dir: /workspace
